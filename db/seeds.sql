@@ -1,5 +1,5 @@
 INSERT INTO subject
-    (title)
+    (subject_name)
 VALUES
     ('Arts and Humanities'), 
     ('Language'), 

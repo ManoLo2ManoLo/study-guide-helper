@@ -8,7 +8,7 @@ Section.init(
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            autoIncrement: truw,
+            autoIncrement: true,
             primaryKey: true
         },
 

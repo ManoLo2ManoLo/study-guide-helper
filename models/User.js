@@ -21,8 +21,7 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                minLength: 3,
-                maxLength: 20
+                len: [3, 20]
             }
         },
 
@@ -30,18 +29,25 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                minLength: 3,
-                maxLength: 20
+                len: [3, 20]
             }
         },
 
         username: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
             validate: {
-                minLength: 4,
-                maxLength: 20,
-                unique: true
+                len: [4, 20]
+            }
+        },
+
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+            validate: {
+                isEmail: true
             }
         },
 
@@ -49,8 +55,7 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                minLength: 6,
-                maxLength: 16
+                len: [6, 16]
             }
         }
     },

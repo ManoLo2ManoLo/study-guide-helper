@@ -25,7 +25,7 @@ class Question extends Model {}
      {
          sequelize,
          freezeTableName: true,
-         underscored: truw,
+         underscored: true,
          modelName: 'question'
      }
  );

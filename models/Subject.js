@@ -1,5 +1,5 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
-const sequelize = require('../config/connectoin');
+const sequelize = require('../config/connection');
 
 class Subject extends Model {}
 
@@ -21,10 +21,11 @@ Subject.init(
     },
     {
         sequelize,
+        timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'subject'
     }
 );
 
-module.exports = Score;
+module.exports = Subject;
