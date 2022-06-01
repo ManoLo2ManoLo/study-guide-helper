@@ -12,7 +12,7 @@ Subject.init(
             primaryKey: true
         },
 
-        title: {
+        subject_name: {
             type: Sequelize.ENUM('Arts and Humanities', 'Language', 'Math', 'Science', 'Social Science', 'Other'),
             validate: {
                 unique: true
