@@ -32,12 +32,12 @@ Question.belongsTo(Section, {
     onDelete: 'SET NULL'
 });
 
-Course.hasOne(Subject, {
+Subject.hasMany(Course, {
     foreignKey: 'subject_id',
     onDelete: 'SET NULL'
 });
 
-Subject.belongsTo(Course, {
+Course.belongsTo(Subject, {
     foreignKey: 'subject_id',
     onDelete: 'SET NULL'
 })
