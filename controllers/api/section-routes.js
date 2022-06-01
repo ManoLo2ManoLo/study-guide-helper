@@ -1,33 +1,19 @@
 const router = require('express').Router();
-const { Course, Subject, User, Section } = require('../../Models');
+const { Section, Course } = require('../../Models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
-    Course.findAll({
+    Section.findAll({
         attributes: {
-            exclude: ['user_id', 'subject_id']
+            exclude: ['subject_id']
         },
 
         include: [
             {
-                model: User,
+                model: Course,
                 attributes: [
                     'id',
-                    'username'
-                ]
-            },
-            {
-                model: Subject,
-                attributes: [
-                    'id',
-                    'subject_name'
-                ]
-            },
-            {
-                model: Section,
-                attributes: [
-                    'id',
-                    'section_name'
+                    'course_name'
                 ]
             }
         ]
@@ -40,34 +26,19 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-    Course.findOne({
+    Section.findOne({
         where: {
             id: req.params.id
         },
         attributes: {
-            exclude: ['user_id', 'subject_id']
+            exclude: ['subject_id']
         },
-
         include: [
             {
-                model: User,
+                model: Course,
                 attributes: [
                     'id',
-                    'username'
-                ]
-            },
-            {
-                model: Subject,
-                attributes: [
-                    'id',
-                    'subject_name'
-                ]
-            },
-            {
-                model: Section,
-                attributes: [
-                    'id',
-                    'section_name'
+                    'course_name'
                 ]
             }
         ]
@@ -87,10 +58,9 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', withAuth, (req, res) => {
-    Course.create({
-        course_name: req.body.course_name,
-        subject_id: req.body.subject_id,
-        user_id: req.session.user_id
+    Section.create({
+        section_name: req.body.section_name,
+        course_id: req.body.course_id,
     })
     .then((dbUserData) => { res.json(dbUserData) })
     .catch((err) => {

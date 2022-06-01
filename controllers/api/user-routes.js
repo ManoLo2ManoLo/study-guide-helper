@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Course, Subject } = require('../../Models');
+const { User, Course, Subject, Section } = require('../../Models');
 
 router.get('/', (req, res) => {
     User.findAll({
@@ -13,7 +13,11 @@ router.get('/', (req, res) => {
                 include: [
                     {
                         model: Subject,
-                        attributes: [ 'id', 'subject_name' ]
+                        attributes: [ 'id', 'subject_name' ],
+                    },
+                    {
+                        model: Section,
+                        attributes: [ 'id', 'section_name' ]
                     }
                 ]
             }
@@ -42,6 +46,10 @@ router.get('/:id', (req, res) => {
                     {
                         model: Subject,
                         attributes: [ 'id', 'subject_name' ]
+                    },
+                    {
+                        model: Section,
+                        attributes: [ 'id', 'section_name' ]
                     }
                 ]
             }
