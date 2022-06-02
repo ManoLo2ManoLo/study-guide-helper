@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
             }
         ]
     })
-    .then((dbUserData) => res.json(dbUserData))
+    .then((dbCourseData) => res.json(dbCourseData))
     .catch((err) => {
         console.log(err);
         res.status(500).json(err);
@@ -72,13 +72,13 @@ router.get('/:id', (req, res) => {
             }
         ]
     })
-    .then((dbUserData) => {
-        if (!dbUserData) {
-            res.status(404).json({ message: 'No user found with this id' });
+    .then((dbCourseData) => {
+        if (!dbCourseData) {
+            res.status(404).json({ message: 'No course found with this id' });
             return;
         }
 
-        res.json(dbUserData);
+        res.json(dbCourseData);
     })
     .catch((err) => {
         console.log(err);
@@ -92,7 +92,7 @@ router.post('/', withAuth, (req, res) => {
         subject_id: req.body.subject_id,
         user_id: req.session.user_id
     })
-    .then((dbUserData) => { res.json(dbUserData) })
+    .then((dbCourseData) => { res.json(dbCourseData) })
     .catch((err) => {
         console.log(err);
         res.status(500).json(err);

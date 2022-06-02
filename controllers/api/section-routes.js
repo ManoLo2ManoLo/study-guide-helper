@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Section, Course } = require('../../Models');
+const { Section, Course, Question } = require('../../Models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
@@ -15,10 +15,18 @@ router.get('/', (req, res) => {
                     'id',
                     'course_name'
                 ]
+            },
+            {
+                model: Question,
+                attributes: [
+                    'id',
+                    'question',
+                    'answer'
+                ]
             }
         ]
     })
-    .then((dbUserData) => res.json(dbUserData))
+    .then((dbSectionData) => res.json(dbSectionData))
     .catch((err) => {
         console.log(err);
         res.status(500).json(err);
@@ -43,13 +51,13 @@ router.get('/:id', (req, res) => {
             }
         ]
     })
-    .then((dbUserData) => {
-        if (!dbUserData) {
-            res.status(404).json({ message: 'No user found with this id' });
+    .then((dbSectionData) => {
+        if (!dbSectionData) {
+            res.status(404).json({ message: 'No section found with this id' });
             return;
         }
 
-        res.json(dbUserData);
+        res.json(dbSectionData);
     })
     .catch((err) => {
         console.log(err);
@@ -62,7 +70,7 @@ router.post('/', withAuth, (req, res) => {
         section_name: req.body.section_name,
         course_id: req.body.course_id,
     })
-    .then((dbUserData) => { res.json(dbUserData) })
+    .then((dbSectionData) => { res.json(dbSectionData) })
     .catch((err) => {
         console.log(err);
         res.status(500).json(err);

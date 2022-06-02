@@ -3,7 +3,7 @@ const { Subject } = require('../../Models');
 
 router.get('/', (req, res) => {
     Subject.findAll()
-    .then((dbUserData) => res.json(dbUserData))
+    .then((dbSubjectData) => res.json(dbSubjectData))
     .catch((err) => {
         console.log(err);
         res.status(500).json(err);
