@@ -1,47 +1,49 @@
-<div class="card text-center">
-  <div class="card-header">
-    Welcome to Study Buddy!
-  </div>
+<div class="container">
+  <div class="card text-center">
+    <div class="card-header">
+      Welcome to Study Buddy!
+    </div>
 
-  <div class="card-body">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card h-100">
-          <img src="/images/create.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Step 1: Create</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <div class="card-body">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <img src="/images/create.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Step 1: Create</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col">
-        <div class="card h-100">
-          <img src="/images/study.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Step 2: Study</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="col">
+          <div class="card h-100">
+            <img src="/images/study.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Step 2: Study</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col">
-        <div class="card h-100">
-          <img src="/images/pass.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Step 3: Results</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="col">
+          <div class="card h-100">
+            <img src="/images/pass.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Step 3: Results</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="card-footer text-muted">
-    {{#if loggedIn}}
-      <a href="/" class="btn btn-primary">Get Studying!</a>
-    {{else}}
-      <a href="/signup" class="btn btn-primary">Get Started Today!</a>
-    {{/if}}
+    <div class="card-footer text-muted">
+      {{#if loggedIn}}
+        <a href="/" class="btn btn-primary">Get Studying!</a>
+      {{else}}
+        <a href="/signup" class="btn btn-primary">Get Started Today!</a>
+      {{/if}}
+    </div>
   </div>
 </div>

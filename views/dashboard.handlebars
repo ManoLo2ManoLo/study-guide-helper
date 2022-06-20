@@ -1,1 +1,40 @@
-Hello World!
+<div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+    <ul class="list-unstyled ps-0">
+      {{!-- <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#subject-collapse" aria-expanded="true">
+          Subjects
+        </button>
+        <div class="collapse show" id="subject-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Arts and Humanities </a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Language</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Math</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Science</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Social Science</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">Other</a></li>
+          </ul>
+        </div>
+      </li> --}}
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#course-collapse" aria-expanded="true">
+          Courses
+        </button>
+        <div class="collapse show" id="course-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            {{#each user.courses as |course|}}
+                <li><button href="#" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#section-collapse" aria-expanded="true">{{course.course_name}}</button></li>
+                <div class="collapse show" id="section-collapse">
+                    <ul>
+                        {{#each course.sections as |section|}}
+                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded">{{section.section_name}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>
+            {{/each}}
+          </ul>
+        </div>
+      </li>
+    </ul>
+</div>
+
+  <script src="/javascript/sidebars.js"></script>
